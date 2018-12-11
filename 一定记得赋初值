@@ -86,3 +86,48 @@ b[i]=a[i];
 这周虽然题目比较简单，但是我的c语言期中考不好，所以。。唉
 把前几周的总结一下吧。
 下一篇见。
+
+补充
+
+
+
+
+
+
+
+6-7 求一组数中的最大值、最小值和平均值 （10 分）
+编写函数，求一组数中的最大值、最小值和平均值。
+函数接口定义：
+float fun(int a[],int n,int *max,int *min);
+其中 a、n、max 和 min 都是用户传入的参数。函数求a数组中n个元素的最大值、最小值和平均值。最大值和最小值分别通过max 和 min带回，函数返回平均值 。
+
+
+
+#include <stdio.h>
+float fun(int a[], int n, int *max, int *min);
+int main()
+{
+	int x[10], i, m, n;
+	float p;
+	for (i = 0;i<10;i++)
+		scanf("%d", &x[i]);
+	p = fun(x, 10, &m, &n);
+	printf("max=%d,min=%d,average=%.2f\n", m, n, p);
+	return 0;
+}
+
+float fun(int a[], int n, int *max, int *min)
+{
+	int *p;
+	float sum = 0;
+	*max = *min = *a;//要赋初值。。不然 出来的min是个鬼东西
+	for (p = a ; p < a + n; p++)
+	{
+		if (*p > *max)
+			*max = *p;
+		else if (*p < *min)
+			*min = *p;
+		sum += *p;
+	}
+	return sum / n;
+}
