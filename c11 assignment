@@ -43,7 +43,7 @@ int main(void)
 
         char ch;
 
-        ch = getchar();//吸收空格
+        ch = getchar();//吸收空格,在gets之前要吸收
 
         gets(str);
 
@@ -208,7 +208,7 @@ int main(void)
 
         }
 
-        for (i = 0;i < n;i++) {
+        for (i = 0;i < n-1;i++) {
 
                  k = i;//k相当于一个最小值的下标
 
